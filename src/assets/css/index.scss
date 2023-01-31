@@ -1,0 +1,74 @@
+@import './variables.scss';
+@import './mixin.scss';
+
+html,
+body .app {
+  color: #333333;
+  font-family: Arial, Helvetica, 'STHeiti STXihei', 'Microsoft YaHei', Tohoma, sans-serif;
+  background-color: $background-color;
+}
+
+.app-container {
+  padding-bottom: 100px;
+}
+// @font-face {
+//   font-family: 'ShangShouDingSongTi';
+//   src: url('../assets/fonts/No.139ShangShouDingSongTi-2.ttf');
+// }
+@font-face {
+  font-family: 'ShuHeiTi';
+  src: url('assets/fonts/Alimama_ShuHeiTi_Bold.ttf');
+}
+@font-face {
+  font-family: 'PuHuiTi';
+  src: url('assets/fonts/Alibaba_PuHuiTi_2.0_55_Regular_55_Regular.ttf');
+}
+@font-face {
+  font-family: 'PuHuiTi_Heavy';
+  src: url('assets/fonts/Alibaba_PuHuiTi_2.0_105_Heavy_105_Heavy.ttf');
+}
+
+.sub-title {
+  display: block;
+  margin: 8px 0;
+  display: flex;
+  position: relative;
+  align-items: flex-end;
+  justify-content: flex-start;
+  border-bottom: 1px solid #566ceb;
+  .en-name {
+    transform: scale(0.78);
+    color: #566ceb88;
+    font-size: 12px;
+    line-height: 14px;
+    padding-left: 2px;
+  }
+  .name {
+    font-family: 'PuHuiTi';
+    font-size: 18px;
+    vertical-align: middle;
+    position: relative;
+    padding: 0 5px;
+    background-color: #566ceb;
+    color: #ffffffdd;
+    line-height: 28px;
+  }
+}
+.big-btn {
+  cursor: pointer;
+  margin: 0 auto;
+  width: 280px;
+  max-width: 70%;
+  height: 55px;
+  line-height: 55px;
+  background: linear-gradient(45deg, #5748e2 0%, #5651f5 40%, #566ceb 100%);
+  border-radius: 10px;
+  display: block;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  color: #ffffffdd;
+  font-family: 'ShuHeiTi';
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
