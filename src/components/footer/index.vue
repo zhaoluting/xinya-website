@@ -27,7 +27,7 @@
           <a class="dashed" href="tel:0573-84581689">0573-84581689</a>
         </p>
         <p class="detail">
-          <b>赵金海(阿海)</b>
+          <b>赵金海(老板阿海)</b>
           <span class="sub-item">
             <span>手机号：<a class="dashed" href="tel:13705832392">13705832392</a></span>
             <span>天凝网：<a class="dashed" href="tel:582392">582392</a></span>
@@ -50,7 +50,7 @@
           <b>中国农业银行</b>
           <span class="sub-item">
             <span>账号：19330701040003703</span>
-            <span>支行：农行嘉善陶庄支行</span>
+            <span>支行：嘉善陶庄支行</span>
           </span>
         </p>
         <p class="detail">

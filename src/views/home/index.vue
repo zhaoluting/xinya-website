@@ -21,12 +21,7 @@
       <div class="wells-item">
         <BigTitle :main="well.title.main" :minor="well.title.minor" :type="outindex / 2 ? 'white' : ''"></BigTitle>
         <div v-for="(item, index) in well.images" :key="index">
-          <!-- <p v-if="item.desc" class="desc">{{item.desc}}</p> -->
-          <van-swipe v-if="well.type == 'swipe'" class="swipe-warp" :autoplay="5000" indicator-color="white">
-            <van-swipe-item v-for="(image, idx) in item.list" :key="idx">
-              <img @click="openImages(item.list, idx)" class="wells-image" v-lazy="image" />
-            </van-swipe-item>
-          </van-swipe>
+          <p v-if="item.desc" class="desc">{{ item.desc }}</p>
           <div v-if="well.type == 'waterfall'" @click="handleWellsClick($event, item)">
             <vue-seamless-scroll class="waterfall_warp" :data="item.list" :class-option="item.classOption">
               <div class="waterfall_container">
@@ -40,6 +35,16 @@
               </div>
             </vue-seamless-scroll>
           </div>
+          <van-swipe v-else-if="item.type == 'swipe'" class="swipe-warp" :autoplay="5000" indicator-color="white">
+            <van-swipe-item v-for="(source, idx) in item.list" :key="idx">
+              <img @click="openImages(item.list, idx)" class="wells-image" v-lazy="source" />
+            </van-swipe-item>
+          </van-swipe>
+          <van-swipe v-else-if="item.type == 'video'" class="swipe-warp" :autoplay="5000" indicator-color="white">
+            <van-swipe-item v-for="(source, idx) in item.list" :key="idx">
+              <video :src="source" class="wells-image" muted controls></video>
+            </van-swipe-item>
+          </van-swipe>
         </div>
       </div>
     </div>
@@ -66,11 +71,28 @@ export default {
       introWell: [
         {
           title: { main: '公司简介', minor: 'COMPANY PROFILE' },
-          type: 'swipe',
           images: [
             {
               desc: '',
+              type: 'swipe',
               list: [require('assets/images/banner/home_1.png'), require('assets/images/banner/home_2.png')]
+            },
+            {
+              desc: '种类繁多',
+              type: 'video',
+              list: [
+                // require('assets/images/media/goods_1.mp4'),
+                require('assets/images/media/goods.mp4')
+              ]
+            },
+            {
+              desc: '远销海外',
+              type: 'swipe',
+              list: [
+                require('assets/images/oversea/oversea_1.jpeg'),
+                require('assets/images/oversea/oversea_2.jpeg'),
+                require('assets/images/oversea/oversea_3.jpeg')
+              ]
             }
           ]
         },
@@ -79,7 +101,7 @@ export default {
           type: 'waterfall',
           images: [
             {
-              desc: '大型货物',
+              // desc: '大型货物',
               classOption: {
                 direction: 2,
                 step: 0.2
@@ -96,7 +118,7 @@ export default {
               ]
             },
             {
-              desc: '中型货物',
+              // desc: '中型货物',
               classOption: {
                 direction: 3,
                 step: 0.2
@@ -111,7 +133,7 @@ export default {
               ]
             },
             {
-              desc: '小型货物',
+              // desc: '小型货物',
               classOption: {
                 direction: 2,
                 step: 0.2
@@ -129,7 +151,8 @@ export default {
       ]
     }
   },
-  created() {},
+  created() {
+  },
   methods: {
     handleWellsClick(el, item) {
       let target = el.target
@@ -261,9 +284,9 @@ export default {
 
       .desc {
         margin: 0;
-        padding: 0 0 10px 0;
-        font-size: 13px;
-        text-align: left;
+        padding: 10px 0;
+        font-size: 15px;
+        text-align: center;
         color: #9292a6;
         line-height: 20px;
       }
@@ -274,6 +297,9 @@ export default {
         margin-bottom: 20px;
         width: 80%;
         margin: 0 auto;
+        ::v-deep .van-swipe__track {
+          align-items: center;
+        }
       }
 
       .wells-image {
