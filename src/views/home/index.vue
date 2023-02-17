@@ -77,14 +77,14 @@ export default {
               type: 'swipe',
               list: [require('assets/images/banner/home_1.png'), require('assets/images/banner/home_2.png')]
             },
-            {
-              desc: '种类繁多',
-              type: 'video',
-              list: [
-                // require('assets/images/media/goods_1.mp4'),
-                require('assets/images/media/goods.mp4')
-              ]
-            },
+            // {
+            //   desc: '种类繁多',
+            //   type: 'video',
+            //   list: [
+            //     // require('assets/images/media/goods_1.mp4'),
+            //     require('assets/images/media/goods.mp4')
+            //   ]
+            // },
             {
               desc: '远销海外',
               type: 'swipe',
